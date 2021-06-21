@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".utils.UserSignUpActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/signUpBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/signUpTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SignHeader"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                />
+
+
+
+            <EditText
+                android:id="@+id/FullName"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/signUpTV"
+                android:inputType="text"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/Full_name"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+            <EditText
+                android:id="@+id/Username"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:layout_below="@+id/FullName"
+                android:inputType="text"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/user_name"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+            <EditText
+                android:id="@+id/Email"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:layout_below="@id/Username"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/email"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+
+            <EditText
+                android:id="@+id/Phone"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/Email"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/phone"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+            <EditText
+                android:id="@+id/Password"
+                android:inputType="textPassword"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/Phone"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/password"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+            <EditText
+                android:id="@+id/CPassword"
+                android:inputType="textPassword"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/Password"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/confirm_password"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+
+            <TextView
+                android:id="@+id/TnC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TermsNConditionsLink"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/link_blue"
+                android:layout_below="@id/CPassword"/>
+
+            <CheckBox
+                android:id="@+id/TnC_Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TermsNConditionsLabel"
+                android:textSize="15sp"
+                android:layout_below="@+id/TnC"
+                android:layout_centerHorizontal="true" />
+
+
+
+
+            <Button
+                android:id="@+id/signupButton"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TnC_Check"
+                android:background="@drawable/black_round_button"
+                android:text="@string/SignUpBtn"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                app:backgroundTint="#040404"
+                />
+
+            <TextView
+                android:id="@+id/loginRedirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LoginFooterRedirect"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/link_blue"
+                android:layout_below="@id/signupButton"/>
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

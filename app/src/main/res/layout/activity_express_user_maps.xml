@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExpressUserMapsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ExpressUserMapsActivity"/>
+
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="257dp"
+            android:layout_height="60dp"
+           android:layout_centerHorizontal="true"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/black_round_button"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:text="@string/confirmButton"
+            android:onClick="confirmLocation"
+
+            app:backgroundTint="#020202" />
+
+        <ImageButton
+            android:id="@+id/mapbackbutton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="@drawable/white_round_button" />
+
+       </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

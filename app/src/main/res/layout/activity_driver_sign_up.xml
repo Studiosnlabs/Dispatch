@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".utils.DriverSignUpActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SignUpHeader">
+
+            <include layout="@layout/snippet_toolbar_driversignup" />
+
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_below="@id/SignUpHeader"
+            android:id="@+id/signupScroll">
+
+
+
+            <RelativeLayout
+                android:id="@+id/signUpBg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+
+
+                <EditText
+                    android:id="@+id/Drive_FullName"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:inputType="text"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/Full_name"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+                <EditText
+                    android:id="@+id/Drive_Username"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@+id/Drive_FullName"
+                    android:inputType="text"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/user_name"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+                <EditText
+                    android:id="@+id/Drive_Email"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:layout_below="@id/Drive_Username"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/email"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+
+                <EditText
+                    android:id="@+id/Drive_Phone"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@id/Drive_Email"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/phone"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+                <EditText
+                    android:id="@+id/Drive_Password"
+                    android:inputType="textPassword"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@id/Drive_Phone"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/password"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+                <EditText
+                    android:id="@+id/Drive_CPassword"
+                    android:inputType="textPassword"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@id/Drive_Password"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/confirm_password"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+
+                <Spinner
+                    android:id="@+id/Drive_vehicleType"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:ems="10"
+                    android:layout_below="@id/Drive_CPassword"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:id="@+id/GenderLabel"
+                    android:text="@string/genderLabel"
+                    android:layout_below="@+id/Drive_vehicleType"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/GenderLabel"
+                    android:id="@+id/genderGroup"
+                    android:layout_centerHorizontal="true"
+
+                    >
+
+                    <RadioButton android:id="@+id/radio_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Male"
+                        android:onClick="onRadioButtonClicked"/>
+                    <RadioButton android:id="@+id/radio_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Female"
+                        android:onClick="onRadioButtonClicked"/>
+
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/LiscenseLabel"
+                    android:textSize="20sp"
+                    android:text="@string/liscenseLabel"
+                    android:layout_below="@+id/genderGroup"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/LiscenseLabel"
+                    android:id="@+id/licenceGroup"
+                    >
+
+                    <RadioButton android:id="@+id/radio_Yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Yes"
+                        android:onClick="onRadioButtonClicked"/>
+                    <RadioButton android:id="@+id/radio_No"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/No"
+                        android:onClick="onRadioButtonClicked"/>
+
+
+                </RadioGroup>
+                <EditText
+                    android:id="@+id/LicenceID"
+                    android:inputType="textPassword"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@id/licenceGroup"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/licenseId"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+                <EditText
+                    android:id="@+id/VehicleModule"
+                    android:inputType="textPassword"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@id/LicenceID"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/VehicleModule"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+                <EditText
+                    android:id="@+id/licencePlateNumber"
+                    android:inputType="textPassword"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@id/VehicleModule"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/VehicleLicenceNumber"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+
+
+            </RelativeLayout>
+
+
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SignUpFooter"
+            android:layout_below="@id/signupScroll">
+            <TextView
+                android:id="@+id/Drive_TnC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TermsNConditionsLink"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/link_blue"
+                />
+
+            <CheckBox
+                android:id="@+id/TnC_Check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/TermsNConditionsLabel"
+                android:textSize="15sp"
+                android:layout_below="@+id/Drive_TnC"
+                android:layout_centerHorizontal="true" />
+
+
+
+
+            <Button
+                android:id="@+id/Drive_signupButton"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TnC_Check"
+                android:background="@drawable/black_round_button"
+                android:text="@string/SignUpBtn"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                app:backgroundTint="#040404"
+                />
+
+            <TextView
+                android:id="@+id/loginRedirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/LoginFooterRedirect"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/link_blue"
+                android:layout_below="@id/Drive_signupButton"/>
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

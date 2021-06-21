@@ -1,0 +1,60 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_alignParentTop="true" >
+
+
+
+
+        <Button
+            android:id="@+id/UserLogin"
+            android:layout_width="257dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dp"
+            android:background="@drawable/white_round_button"
+            android:padding="10dp"
+            android:text="@string/UserLoginText"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            android:onClick="userLogin"/>
+
+        <Button
+            android:id="@+id/DriverLogin"
+            android:layout_width="257dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/UserLogin"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/black_round_button"
+            android:padding="10dp"
+            android:text="@string/DriverLoginText"
+            app:backgroundTint="#020202"
+            android:onClick="driverLogin"/>
+
+        <TextView
+            android:id="@+id/userSignUpRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/UserSignUpRedirect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:textColor="@color/link_blue"
+            android:layout_below="@id/DriverLogin"/>
+
+        <TextView
+            android:id="@+id/loginRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/DriversignupRedirect1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/link_blue"
+            android:layout_below="@id/userSignUpRedirect"/>
+
+    </RelativeLayout>
+
+
+</merge>

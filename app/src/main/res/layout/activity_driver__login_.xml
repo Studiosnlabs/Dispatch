@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".utils.Driver_Login_Activity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/LoginBg">
+
+
+
+        <TextView
+            android:id="@+id/LoginTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Driver_LoginHeader"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="75dp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/UsernameET"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:layout_below="@id/LoginTV"
+            android:inputType="text"
+            android:layout_centerHorizontal="true"
+            android:padding="15dp"
+            android:hint="@string/user_name"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/textview_border"/>
+
+        <EditText
+            android:id="@+id/PasswordET"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:layout_below="@+id/UsernameET"
+            android:inputType="textPassword"
+            android:layout_centerHorizontal="true"
+            android:padding="15dp"
+            android:hint="@string/password"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/textview_border"/>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/PasswordET"
+            android:background="@drawable/black_round_button"
+            android:text="@string/LoginBtn"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            app:backgroundTint="#040404"
+            />
+
+        <TextView
+            android:id="@+id/loginRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SignUpFooterRedirect"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/link_blue"
+            android:layout_below="@id/loginButton"/>
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

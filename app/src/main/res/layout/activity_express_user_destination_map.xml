@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ExpressDelivery.ExpressDestinationMap">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <SearchView
+            android:layout_marginTop="100dp"
+            android:id="@+id/search_location"
+            android:layout_width="match_parent"
+            android:queryHint="@string/search_hint"
+            android:iconifiedByDefault="false"
+            android:layout_height="70dp"
+            android:elevation="5dp"
+            android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+            android:background="@drawable/white_round_button"
+            />
+
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ExpressDelivery.ExpressDestinationMap"/>
+
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="257dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="500dp"
+            android:background="@drawable/black_round_button"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:text="@string/Confirm_Destination"
+
+
+
+            app:backgroundTint="#020202" />
+
+        <ImageButton
+            android:id="@+id/mapbackbutton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="@drawable/white_round_button" />
+
+    </RelativeLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
