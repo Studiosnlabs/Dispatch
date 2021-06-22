@@ -53,5 +53,7 @@
     <string name="DriversignupRedirect1">Need a drivers account? sign up here</string>
     <string name="DriverSigupToolbarHeader">Driver Sign up</string>
     <string name="Driver_LoginHeader">DRIVERS LOGIN</string>
+    <string name="navigation_draw_open">Open navigation drawer </string>
+    <string name="navigation_draw_close">Close navigation drawer </string>
 
 </resources>
