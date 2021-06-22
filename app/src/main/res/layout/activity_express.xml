@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start"
     tools:context=".ExpressDelivery.ExpressActivity">
 
 
@@ -13,9 +16,9 @@
 
         <!--  top toolbar      -->
         <RelativeLayout
+            android:id="@+id/relLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout1">
+            android:layout_height="wrap_content">
 
             <include layout="@layout/snippet_top_toolbar" />
 
@@ -23,22 +26,20 @@
 
         <!--  Middle Section      -->
         <RelativeLayout
+            android:id="@+id/relLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/relLayout2"
-            android:layout_below="@+id/relLayout1"
-            >
+            android:layout_below="@+id/relLayout1">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/setLocationTitleExpress"
-                android:textSize="25dp"
-                android:gravity="center"
-                android:textColor="@color/black"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
-                />
+                android:gravity="center"
+                android:text="@string/setLocationTitleExpress"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
 
             <include layout="@layout/layout_center_pickupbuttons" />
 
@@ -51,4 +52,11 @@
 
     </RelativeLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        />
+</androidx.drawerlayout.widget.DrawerLayout>
