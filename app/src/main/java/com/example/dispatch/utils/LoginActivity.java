@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Log.d(TAG, "userLogin: user login successful");
 
-       // ParseUser.getCurrentUser().put("userOrDriver","user");
+       // ParseUser.getCurrentUser().put("isDriver",false);
 
         Log.d(TAG, "userLogin: redirecting as user");
 
@@ -51,9 +51,12 @@ public class LoginActivity extends AppCompatActivity {
     public void driverLogin(View view){
         Log.d(TAG, "driverLogin: driver login successful");
 
-        ParseUser.getCurrentUser().put("userOrDriver","Driver");
+        ParseUser.getCurrentUser().put("isDriver",true);
 
         Log.d(TAG, "driverLogin: redirecting as Driver");
+
+        Intent intent= new Intent(getApplicationContext(), Driver_Login_Activity.class);
+        startActivity(intent);
 
     }
 

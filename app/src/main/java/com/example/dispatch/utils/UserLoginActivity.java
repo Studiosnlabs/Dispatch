@@ -48,9 +48,9 @@ public class UserLoginActivity extends AppCompatActivity {
 
 
 
-        if (ParseUser.getCurrentUser() != null){
-            NextIntent();
-        }
+//        if (ParseUser.getCurrentUser() != null){
+//            NextIntent();
+//        }
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
