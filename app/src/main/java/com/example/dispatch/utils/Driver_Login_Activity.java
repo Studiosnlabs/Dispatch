@@ -102,7 +102,7 @@ public class Driver_Login_Activity extends AppCompatActivity {
         loginRedirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(),UserSignUpActivity.class);
+                Intent intent= new Intent(getApplicationContext(),DriverSignUpActivity.class);
                 startActivity(intent);
 
 

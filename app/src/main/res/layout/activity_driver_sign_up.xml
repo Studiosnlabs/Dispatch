@@ -187,7 +187,7 @@
                 </RadioGroup>
                 <EditText
                     android:id="@+id/LicenceID"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:layout_width="328dp"
                     android:layout_height="56dp"
                     android:layout_below="@id/licenceGroup"
@@ -198,7 +198,7 @@
                     android:background="@drawable/textview_border"/>
                 <EditText
                     android:id="@+id/VehicleModule"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:layout_width="328dp"
                     android:layout_height="56dp"
                     android:layout_below="@id/LicenceID"
@@ -210,7 +210,7 @@
 
                 <EditText
                     android:id="@+id/licencePlateNumber"
-                    android:inputType="textPassword"
+                    android:inputType="text"
                     android:layout_width="328dp"
                     android:layout_height="56dp"
                     android:layout_below="@id/VehicleModule"

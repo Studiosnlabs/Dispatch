@@ -29,7 +29,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
 
     public void NextIntent(){
-        Intent intent = new Intent(this, ExpressFormActivity.class);
+        Intent intent = new Intent(this, ExpressActivity.class);
         startActivity(intent);
     }
 
@@ -48,9 +48,9 @@ public class UserLoginActivity extends AppCompatActivity {
 
 
 
-//        if (ParseUser.getCurrentUser() != null){
-//            NextIntent();
-//        }
+       if (ParseUser.getCurrentUser() != null){
+          NextIntent();
+       }
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

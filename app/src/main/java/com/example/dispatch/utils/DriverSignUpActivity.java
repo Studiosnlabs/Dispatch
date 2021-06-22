@@ -228,7 +228,7 @@ public class DriverSignUpActivity extends AppCompatActivity {
                     user.setUsername(username.getText().toString());
                     user.setEmail(eMail.getText().toString());
                     user.setPassword(password.getText().toString());
-                    user.put("fullname",fullname.getText().toString());
+                    user.put("fullName",fullname.getText().toString());
                     user.put("phone",phone.getText().toString());
                     user.put("Tnc",TnC);
                     user.put("isDriver",driver);

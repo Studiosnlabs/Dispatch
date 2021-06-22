@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     public void driverLogin(View view){
         Log.d(TAG, "driverLogin: driver login successful");
 
-        ParseUser.getCurrentUser().put("isDriver",true);
+       // ParseUser.getCurrentUser().put("isDriver",true);
 
         Log.d(TAG, "driverLogin: redirecting as Driver");
 
