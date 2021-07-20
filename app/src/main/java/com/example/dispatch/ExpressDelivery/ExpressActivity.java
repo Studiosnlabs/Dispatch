@@ -35,7 +35,7 @@ public class ExpressActivity extends AppCompatActivity implements NavigationView
     private Context mcontext = ExpressActivity.this;
 
     public void useCurrentLocation(View view) {
-        Log.d(TAG, "useCurrentLocation: redirecting to map activity using currernt location");
+        Log.d(TAG, "useCurrentLocation: redirecting to map activity using current location");
         Intent intent = new Intent(getApplicationContext(), ExpressUserMapsActivity.class);
         startActivity(intent);
 

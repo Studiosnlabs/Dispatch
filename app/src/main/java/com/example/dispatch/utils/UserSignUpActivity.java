@@ -34,7 +34,7 @@ public class UserSignUpActivity extends AppCompatActivity {
     TextView SignUpLogo;
 
     public void NextIntent(){
-        Intent intent = new Intent(this, ExpressActivity.class);
+        Intent intent = new Intent(this, ExpressFormActivity.class);
         startActivity(intent);
     }
 

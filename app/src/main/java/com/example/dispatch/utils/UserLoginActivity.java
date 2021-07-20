@@ -29,7 +29,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
 
     public void NextIntent(){
-        Intent intent = new Intent(this, ExpressActivity.class);
+        Intent intent = new Intent(this, ExpressFormActivity.class);
         startActivity(intent);
     }
 

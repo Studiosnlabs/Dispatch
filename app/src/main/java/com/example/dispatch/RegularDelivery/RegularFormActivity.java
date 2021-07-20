@@ -1,10 +1,9 @@
-package com.example.dispatch.ExpressDelivery;
+package com.example.dispatch.RegularDelivery;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,23 +15,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dispatch.ExpressDelivery.ExpressFormActivity;
 import com.example.dispatch.ExpressUserMapsActivity;
 import com.example.dispatch.R;
 import com.example.dispatch.utils.OrderModule;
-import com.example.dispatch.utils.SendersLocationModule;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.util.List;
 
-public class ExpressFormActivity extends AppCompatActivity {
-
-    private static final String TAG = "ExpressformActivity";
+public class RegularFormActivity extends AppCompatActivity {
+    private static final String TAG = "RegularFormActivity";
 
     EditText packageDescription;
     EditText recipientName;
@@ -44,11 +41,11 @@ public class ExpressFormActivity extends AppCompatActivity {
     EditText destination;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_express_form);
-
+        setContentView(R.layout.activity_regular_form);
 
         packageDescription = findViewById(R.id.PackageDescriptionET);
         recipientName = findViewById(R.id.RecipientName);
@@ -112,9 +109,7 @@ public class ExpressFormActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
 
     public void expressOrder(View view) {
 
@@ -160,7 +155,7 @@ public class ExpressFormActivity extends AppCompatActivity {
                                             Log.d(TAG, "done: Upload successful");
                                         } else {
                                             Log.d(TAG, "done: Upload failed");
-                                            Toast.makeText(ExpressFormActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RegularFormActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
@@ -185,6 +180,7 @@ public class ExpressFormActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
 
 }

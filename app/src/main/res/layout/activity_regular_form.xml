@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegularDelivery.RegularFormActivity">
+
+
+    <include layout="@layout/snippet_top_toolbar" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contentScrollView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/PackageDescriptionET"
+                    android:layout_width="328dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="100dp"
+                    android:hint="@string/PackageDesc"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:background="@drawable/textview_border"
+                    android:inputType="textMultiLine" />
+
+
+                <EditText
+                    android:id="@+id/RecipientName"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:inputType="text"
+                    android:layout_below="@id/PackageDescriptionET"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/RecipientName"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"
+                    />
+
+                <EditText
+                    android:id="@+id/RecipientPhone"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:layout_below="@id/RecipientName"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/RecipientPhone"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+                <EditText
+                    android:id="@+id/PackageDestination"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:layout_below="@id/RecipientPhone"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:hint="@string/PackageDestination"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/textview_border"/>
+
+
+                <Spinner
+                    android:id="@+id/vehicleType"
+                    android:layout_width="328dp"
+                    android:layout_height="56dp"
+                    android:ems="10"
+                    android:layout_below="@id/PackageDestination"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:layout_marginTop="15dp"
+                    />
+
+
+
+
+
+
+            </RelativeLayout>
+
+
+
+        </ScrollView>
+
+        <Button
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contentScrollView"
+            android:background="@drawable/black_round_button"
+            android:text="@string/OrderButton"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            app:backgroundTint="#040404"
+            android:onClick="expressOrder"/>
+
+    </RelativeLayout>
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

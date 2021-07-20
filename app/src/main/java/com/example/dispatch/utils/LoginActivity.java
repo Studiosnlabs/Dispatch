@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.dispatch.ExpressDelivery.ExpressActivity;
+import com.example.dispatch.ExpressDelivery.ExpressFormActivity;
 import com.example.dispatch.R;
 import com.parse.LogInCallback;
 import com.parse.ParseAnalytics;
@@ -20,26 +21,12 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
 
-    public void redirectActivity(){
-
-        if (ParseUser.getCurrentUser().getString("userOrDriver").equals("user")) {
-
-            Intent intent = new Intent(getApplicationContext(),ExpressActivity.class);
-            startActivity(intent);
-
-
-        } else {
-            Log.d(TAG, "redirectActivity: this user was logged in as a driver but i have not created the driver activity yet");
-        }
-
-    }
-
     public void userLogin(View view){
 
 
         Log.d(TAG, "userLogin: user login successful");
 
-       // ParseUser.getCurrentUser().put("isDriver",false);
+        // ParseUser.getCurrentUser().put("isDriver",false);
 
         Log.d(TAG, "userLogin: redirecting as user");
 
@@ -47,6 +34,40 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void redirectActivity(){
+
+        if (ParseUser.getCurrentUser()!=null) {
+
+            if (ParseUser.getCurrentUser().getBoolean("isDriver")) {
+
+                Log.d(TAG, "redirectActivity: this user was logged in as a driver but i have not created the driver activity yet");
+                Intent intent = new Intent(getApplicationContext(), ExpressFormActivity.class);
+                startActivity(intent);
+
+            } else {
+
+                Intent intent = new Intent(getApplicationContext(), ExpressFormActivity.class);
+                startActivity(intent);
+            }
+
+        }
+
+        else {
+
+            Intent intent= new Intent(getApplicationContext(), UserLoginActivity.class);
+            startActivity(intent);
+
+        }
+
+
+
+    }
+
+
+
+
+
 
     public void driverLogin(View view){
         Log.d(TAG, "driverLogin: driver login successful");
@@ -65,6 +86,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+  redirectActivity();
 
 /*
 
