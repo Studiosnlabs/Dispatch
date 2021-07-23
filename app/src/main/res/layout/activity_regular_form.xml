@@ -23,11 +23,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/RegularPackageImage"
+                    android:layout_width="328dp"
+                    android:layout_height="250dp"
+                    android:layout_centerHorizontal="true"
+                    android:padding="15dp"
+                    android:layout_marginTop="70dp"
+                    android:scaleType="centerCrop"
+                    android:src="@color/black"/>
+
                 <EditText
                     android:id="@+id/PackageDescriptionET"
                     android:layout_width="328dp"
-                    android:layout_height="140dp"
-                    android:layout_marginTop="100dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/RegularPackageImage"
                     android:hint="@string/PackageDesc"
                     android:layout_centerHorizontal="true"
                     android:padding="15dp"
@@ -85,7 +96,16 @@
                     />
 
 
-
+                <Button
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/PackageDestination"
+                    android:background="@drawable/black_round_button"
+                    android:text="@string/OrderButton"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    app:backgroundTint="#040404"
+                    android:onClick="expressOrder"/>
 
 
 
@@ -95,16 +115,7 @@
 
         </ScrollView>
 
-        <Button
-            android:layout_width="328dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/contentScrollView"
-            android:background="@drawable/black_round_button"
-            android:text="@string/OrderButton"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            app:backgroundTint="#040404"
-            android:onClick="expressOrder"/>
+
 
     </RelativeLayout>
 

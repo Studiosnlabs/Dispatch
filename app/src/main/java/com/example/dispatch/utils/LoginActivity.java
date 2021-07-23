@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.dispatch.ExpressDelivery.ExpressActivity;
 import com.example.dispatch.ExpressDelivery.ExpressFormActivity;
 import com.example.dispatch.R;
+import com.example.dispatch.RegularDelivery.RegularActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseAnalytics;
 import com.parse.ParseAnonymousUtils;
@@ -42,12 +43,12 @@ public class LoginActivity extends AppCompatActivity {
             if (ParseUser.getCurrentUser().getBoolean("isDriver")) {
 
                 Log.d(TAG, "redirectActivity: this user was logged in as a driver but i have not created the driver activity yet");
-                Intent intent = new Intent(getApplicationContext(), ExpressFormActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RegularActivity.class);
                 startActivity(intent);
 
             } else {
 
-                Intent intent = new Intent(getApplicationContext(), ExpressFormActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RegularActivity.class);
                 startActivity(intent);
             }
 

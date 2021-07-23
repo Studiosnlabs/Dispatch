@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dispatch"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BatchDelivery.BatchFormActivity"></activity>
+        <activity android:name=".BatchDelivery.Batch_DriversActivity"></activity>
+        <activity android:name=".BatchDelivery.Batch_DestinationActivity" />
+        <activity android:name=".BatchDelivery.BatchFormActivity" />
         <activity android:name=".RegularDelivery.RegularFormActivity" />
         <activity android:name=".utils.Driver_Login_Activity" />
         <activity android:name=".utils.DriverSignUpActivity" />
@@ -68,10 +70,11 @@
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

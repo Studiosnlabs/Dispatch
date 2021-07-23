@@ -7,10 +7,7 @@
     tools:context=".BatchDelivery.BatchFormActivity">
 
 
-    <ListView
-        android:id="@+id/userListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,5 +56,9 @@
     <string name="navigation_draw_open">Open navigation drawer </string>
     <string name="navigation_draw_close">Close navigation drawer </string>
     <string name="book_button">BOOK</string>
+    <string name="bicycle">Bicycle</string>
+    <string name="bicycle_description">Bicycle Description</string>
+    <string name="select_vehicle">Select Vehicle</string>
+    <string name="RegularDescription">Regular Dispatch allows you to book a driver nearest to you for a pick up in at least an hours time,select a vehicle below to begin</string>
 
 </resources>

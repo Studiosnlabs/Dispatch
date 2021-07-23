@@ -1,53 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegularDelivery.RegularActivity">
 
+    <TextView
+        android:id="@+id/RegularActTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Regular Dispatch"
+        android:textSize="40sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        />
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/RegularActDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RegularActTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/RegularDescription"
+        android:textAlignment="center"
+        android:textColor="@color/purple_500"
+        android:textSize="20sp" />
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!--  top toolbar      -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout1">
-
-            <include layout="@layout/snippet_top_toolbar" />
-
-        </RelativeLayout>
-
-        <!--  Middle Section      -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/relLayout2"
-            android:layout_below="@+id/relLayout1"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/setLocationTitleRegular"
-                android:textSize="25dp"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                />
-
-            <include layout="@layout/layout_center_pickupbuttons" />
-
-        </RelativeLayout>
+        android:layout_height="match_parent"
+        android:foregroundGravity="center"
+        android:id="@+id/RegularVehicleVP"
+        android:layout_centerInParent="true"
+        android:overScrollMode="never"
+        android:clipToPadding="false">
 
 
-        <!--bottom navigation-->
+    </androidx.viewpager.widget.ViewPager>
 
-        <include layout="@layout/layout_bottom_navigation_view" />
+    <Button
+        android:id="@+id/RegularVehicleSelectBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/black_round_button"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/select_vehicle"
+        android:textColor="@color/white"
+        app:backgroundTint="#040404" />
 
-    </RelativeLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <include layout="@layout/layout_bottom_navigation_view" />
+
+</RelativeLayout>
