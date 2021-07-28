@@ -32,16 +32,43 @@
             android:layout_below="@+id/relLayout1">
 
             <TextView
+                android:id="@+id/RegularActDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="@string/setLocationTitleExpress"
-                android:textColor="@color/black"
-                android:textSize="25dp" />
+                android:layout_marginTop="5dp"
+                android:text="@string/ExpressDescription"
+                android:textAlignment="center"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp" />
 
-            <include layout="@layout/layout_center_pickupbuttons" />
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foregroundGravity="center"
+                android:id="@+id/ExpressVehicleVP"
+                android:layout_centerInParent="true"
+                android:overScrollMode="never"
+                android:clipToPadding="false">
+
+
+            </androidx.viewpager.widget.ViewPager>
+
+            <Button
+                android:id="@+id/ExpressVehicleSelectBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="60dp"
+                android:background="@drawable/black_round_button"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="@string/select_vehicle"
+                android:textColor="@color/white"
+                app:backgroundTint="#040404" />
+
+
 
         </RelativeLayout>
 

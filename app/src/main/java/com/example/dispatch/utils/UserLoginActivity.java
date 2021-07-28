@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.dispatch.ExpressDelivery.ExpressActivity;
 import com.example.dispatch.ExpressDelivery.ExpressFormActivity;
 import com.example.dispatch.R;
+import com.example.dispatch.RegularDelivery.RegularFormActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -29,7 +30,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
 
     public void NextIntent(){
-        Intent intent = new Intent(this, ExpressFormActivity.class);
+        Intent intent = new Intent(this, RegularFormActivity.class);
         startActivity(intent);
     }
 

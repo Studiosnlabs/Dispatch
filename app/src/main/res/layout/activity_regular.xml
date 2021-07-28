@@ -1,60 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
     tools:context=".RegularDelivery.RegularActivity">
 
-    <TextView
-        android:id="@+id/RegularActTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Regular Dispatch"
-        android:textSize="40sp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/black"
-        />
-
-    <TextView
-        android:id="@+id/RegularActDesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/RegularActTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:text="@string/RegularDescription"
-        android:textAlignment="center"
-        android:textColor="@color/purple_500"
-        android:textSize="20sp" />
-    <androidx.viewpager.widget.ViewPager
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foregroundGravity="center"
-        android:id="@+id/RegularVehicleVP"
-        android:layout_centerInParent="true"
-        android:overScrollMode="never"
-        android:clipToPadding="false">
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relLayout1Reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/snippet_toolbar_regular" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relLayout2Reg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relLayout1Reg">
 
 
-    </androidx.viewpager.widget.ViewPager>
+            <TextView
+                android:id="@+id/RegularActDesc"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/relLayout1"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/RegularDescription"
+                android:textAlignment="center"
+                android:textColor="@color/purple_500"
+                android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/RegularVehicleSelectBtn"
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foregroundGravity="center"
+                android:id="@+id/RegularVehicleVP"
+                android:layout_centerInParent="true"
+                android:overScrollMode="never"
+                android:clipToPadding="false">
+
+
+            </androidx.viewpager.widget.ViewPager>
+
+            <Button
+                android:id="@+id/RegularVehicleSelectBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="60dp"
+                android:background="@drawable/black_round_button"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:text="@string/select_vehicle"
+                android:textColor="@color/white"
+                app:backgroundTint="#040404" />
+
+
+            <include layout="@layout/layout_bottom_navigation_view" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/black_round_button"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:text="@string/select_vehicle"
-        android:textColor="@color/white"
-        app:backgroundTint="#040404" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu" />
 
 
-    <include layout="@layout/layout_bottom_navigation_view" />
-
-</RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

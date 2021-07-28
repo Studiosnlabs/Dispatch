@@ -31,7 +31,9 @@
                     android:padding="15dp"
                     android:layout_marginTop="70dp"
                     android:scaleType="centerCrop"
-                    android:src="@color/black"/>
+                    android:src="@drawable/packageplaceholder"/>
+
+
 
                 <EditText
                     android:id="@+id/PackageDescriptionET"
@@ -116,6 +118,7 @@
         </ScrollView>
 
 
+        <include layout="@layout/layout_bottom_navigation_view" />
 
     </RelativeLayout>
 

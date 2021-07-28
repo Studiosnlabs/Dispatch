@@ -60,5 +60,9 @@
     <string name="bicycle_description">Bicycle Description</string>
     <string name="select_vehicle">Select Vehicle</string>
     <string name="RegularDescription">Regular Dispatch allows you to book a driver nearest to you for a pick up in at least an hours time,select a vehicle below to begin</string>
+    <string name="package_details">Package Details</string>
+    <string name="regular_dispatchTitle">Regular Dispatch</string>
+    <string name="ExpressDescription">Express allows you to order a driver nearest to you for a pick up ,select a vehicle below to begin</string>
+    <string name="express_dispatch">Express Dispatch</string>
 
 </resources>

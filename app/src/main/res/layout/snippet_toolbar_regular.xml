@@ -10,29 +10,28 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:id="@+id/profileToolbar">
+            android:id="@+id/profileToolbarRegular">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-               <!-- <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginEnd="20dp"
-                    android:layout_centerVertical="true"
-                    android:id="@+id/profileMenu"
-                    android:src="@drawable/ic_baseline_menu_24"/>-->
+             <!-- <ImageView
+                     android:layout_width="25dp"
+                     android:layout_height="25dp"
+                     android:layout_alignParentLeft="true"
+                     android:layout_marginEnd="20dp"
+                     android:layout_centerVertical="true"
+                     android:id="@+id/profileMenu"
+                     android:src="@drawable/ic_baseline_menu_24"/>-->
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:textSize="20sp"
-                    android:text="@string/express_dispatch"
+                    android:text="@string/regular_dispatchTitle"
                     android:textColor="@color/black"
-
                     android:id="@+id/profileName"/>
 
 
