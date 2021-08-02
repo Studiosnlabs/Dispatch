@@ -51,8 +51,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="20dp"
-                    android:id="@+id/Share"
-                    android:src="@drawable/ic_baseline_share_24"/>
+                    android:id="@+id/HelpRegular"
+                    android:src="@drawable/ic_baseline_help_24"/>
 
 
             </RelativeLayout>

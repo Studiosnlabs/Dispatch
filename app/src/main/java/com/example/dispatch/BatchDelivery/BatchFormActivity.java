@@ -53,7 +53,7 @@ public class BatchFormActivity extends AppCompatActivity {
         packageDescription = findViewById(R.id.PackageDescriptionET);
         recipientName = findViewById(R.id.RecipientName);
         recipientPhone = findViewById(R.id.RecipientPhone);
-        dropdown = findViewById(R.id.vehicleType);
+
         destination = findViewById(R.id.PackageDestination);
 
 

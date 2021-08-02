@@ -45,6 +45,10 @@ dependencies {
     /*Design libraries*/
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
     implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.github.florent37:singledateandtimepicker:2.2.7'
+
+
+
 
     //Circle shape
     implementation 'de.hdodenhof:circleimageview:3.1.0'

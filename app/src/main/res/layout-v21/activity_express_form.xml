@@ -6,88 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".ExpressDelivery.ExpressFormActivity">
 
-    <include layout="@layout/snippet_top_toolbar" />
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <include layout="@layout/snippet_top_toolbar_packageform" />
 
-    <EditText
-        android:id="@+id/PackageDescriptionET"
-        android:layout_width="328dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="100dp"
-        android:hint="@string/PackageDesc"
-        android:layout_centerHorizontal="true"
-        android:padding="15dp"
-        android:background="@drawable/textview_border"
-        android:inputType="textMultiLine" />
-
-
-    <EditText
-        android:id="@+id/RecipientName"
-        android:layout_width="328dp"
-        android:layout_height="56dp"
-        android:inputType="text"
-        android:layout_below="@id/PackageDescriptionET"
-        android:layout_centerHorizontal="true"
-        android:padding="15dp"
-        android:hint="@string/RecipientName"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/textview_border"/>
-
-    <EditText
-        android:id="@+id/RecipientPhone"
-        android:layout_width="328dp"
-        android:layout_height="56dp"
-        android:ems="10"
-        android:inputType="phone"
-        android:layout_below="@id/RecipientName"
-        android:layout_centerHorizontal="true"
-        android:padding="15dp"
-        android:hint="@string/RecipientPhone"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/textview_border"/>
-
-    <EditText
-        android:id="@+id/PackageDestination"
-        android:layout_width="328dp"
-        android:layout_height="56dp"
-        android:layout_below="@id/RecipientPhone"
-        android:layout_centerHorizontal="true"
-        android:padding="15dp"
-        android:hint="@string/PackageDestination"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/textview_border"/>
-
-
-    <Spinner
-        android:id="@+id/vehicleType"
-        android:layout_width="328dp"
-        android:layout_height="56dp"
-        android:ems="10"
-        android:layout_below="@id/PackageDestination"
-        android:layout_centerHorizontal="true"
-        android:padding="15dp"
-        android:layout_marginTop="15dp"
-        />
-
-    <Button
-        android:layout_width="328dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/vehicleType"
-        android:background="@drawable/black_round_button"
-        android:text="@string/OrderButton"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        app:backgroundTint="#040404"
-        android:onClick="expressOrder"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/ExpressPackageImage"
+                android:layout_width="328dp"
+                android:layout_height="250dp"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:layout_marginTop="70dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/packageplaceholder"/>
 
+            <EditText
+                android:id="@+id/PackageDescriptionET"
+                android:layout_width="328dp"
+                android:layout_height="70dp"
+
+                android:hint="@string/PackageDesc"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/ExpressPackageImage"
+                android:padding="15dp"
+                android:background="@drawable/textview_border"
+                android:inputType="textMultiLine" />
+
+
+            <EditText
+                android:id="@+id/RecipientName"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:inputType="text"
+                android:layout_below="@id/PackageDescriptionET"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/RecipientName"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+            <EditText
+                android:id="@+id/RecipientPhone"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:ems="10"
+                android:inputType="phone"
+                android:layout_below="@id/RecipientName"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/RecipientPhone"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+            <EditText
+                android:id="@+id/PackageDestination"
+                android:layout_width="328dp"
+                android:layout_height="56dp"
+                android:layout_below="@id/RecipientPhone"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:hint="@string/PackageDestination"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/textview_border"/>
+
+
+
+            <Button
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/PackageDestination"
+                android:background="@drawable/black_round_button"
+                android:text="@string/OrderButton"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                app:backgroundTint="#040404"
+                android:onClick="expressOrder"/>
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

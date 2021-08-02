@@ -5,6 +5,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 
 import android.Manifest;
 import android.content.Context;
@@ -15,33 +17,47 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.dispatch.ExpressDelivery.ExpressFormActivity;
 import com.example.dispatch.ExpressUserMapsActivity;
 import com.example.dispatch.R;
 import com.example.dispatch.utils.OrderModule;
+import com.example.dispatch.utils.TimePickerFragment;
+import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
+import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class RegularFormActivity extends AppCompatActivity {
@@ -52,10 +68,15 @@ public class RegularFormActivity extends AppCompatActivity {
     EditText recipientPhone;
     String vehicleType;
     ParseGeoPoint sendersLocation;
-    Spinner dropdown;
     OrderModule expressOrder;
     EditText destination;
-   private ImageView PackageImage;
+    private ImageView PackageImage;
+    Button SetDate;
+    TextView dispatchDate;
+    Uri expressPackageImage;
+    Date pickupDate;
+    ImageView backToRegular;
+
 
     private int STORAGE_PERMISSION_CODE = 1; //Identify specific requests for a permission
     private int CAMERA_PERMISSION_CODE = 2;
@@ -72,45 +93,48 @@ public class RegularFormActivity extends AppCompatActivity {
 
         if (ContextCompat.checkSelfPermission(
                 RegularFormActivity.this,
-                Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+                Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
-        }
-
-        else {
+        } else {
             requestStoragePermission();
         }
 
         if (ContextCompat.checkSelfPermission(RegularFormActivity.this, Manifest.permission.CAMERA) ==
                 PackageManager.PERMISSION_GRANTED) {
 
-        }
-        else {
+        } else {
             requestCameraPermission();
         }
 
         if (ContextCompat.checkSelfPermission(
                 RegularFormActivity.this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
-        }
-
-        else {
+        } else {
             requestLocationPermission();
         }
 
 
+        Bundle extras= getIntent().getExtras();
+        vehicleType=extras.getString("vehicleType");
 
-
-
-
-
-
-        PackageImage=(ImageView) findViewById(R.id.RegularPackageImage);
+        SetDate = findViewById(R.id.date_time_set);
+        PackageImage = (ImageView) findViewById(R.id.RegularPackageImage);
         packageDescription = findViewById(R.id.PackageDescriptionET);
         recipientName = findViewById(R.id.RecipientName);
         recipientPhone = findViewById(R.id.RecipientPhone);
-        dropdown = findViewById(R.id.vehicleType);
         destination = findViewById(R.id.PackageDestination);
+        dispatchDate = findViewById(R.id.DispatchLabel);
+        backToRegular= findViewById(R.id.backRegular);
+
+        backToRegular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backToRegular();
+            }
+        });
+
+
 
 
         PackageImage.setOnClickListener(new View.OnClickListener() {
@@ -121,68 +145,42 @@ public class RegularFormActivity extends AppCompatActivity {
         });
 
 
-        String[] items = new String[]{"Select a type of vehicle", "Bicycle", "Motor bike", "Small Car", "Caravan", "Pick up"};
-
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-//        dropdown.setAdapter(adapter);
-
-        final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, R.layout.support_simple_spinner_dropdown_item, items) {
+        SetDate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean isEnabled(int position) {
-                if (position == 0) {
-                    // Disable the first item from Spinner
-                    // First item will be use for hint
-                    return false;
-                } else {
-                    return true;
-                }
-            }
+            public void onClick(View v) {
+                new SingleDateAndTimePickerDialog.Builder(RegularFormActivity.this)
+                        //.bottomSheet()
+                        //.curved()
+                        //.stepSizeMinutes(15)
+                        //.displayHours(false)
+                        //.displayMinutes(false)
+                        //.todayText("aujourd'hui")
+                        .mainColor(Color.BLACK)
+                        .mustBeOnFuture()
+                        .displayListener(new SingleDateAndTimePickerDialog.DisplayListener() {
+                            @Override
+                            public void onDisplayed(SingleDateAndTimePicker picker) {
+                                // Retrieve the SingleDateAndTimePicker
+                            }
 
-            @Override
-            public View getDropDownView(int position, View convertView,
-                                        ViewGroup parent) {
-                View view = super.getDropDownView(position, convertView, parent);
-                TextView tv = (TextView) view;
-                if (position == 0) {
-                    // Set the hint text color gray
-                    tv.setTextColor(Color.GRAY);
-                } else {
-                    tv.setTextColor(Color.BLACK);
-                }
-                return view;
-            }
-        };
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        dropdown.setAdapter(spinnerArrayAdapter);
+                        })
+                        .title("Pick a Date and Time")
+                        .listener(new SingleDateAndTimePickerDialog.Listener() {
+                            @Override
+                            public void onDateSelected(Date date) {
 
-        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItemText = (String) parent.getItemAtPosition(position);
-                // If user change the default selection
-                // First item is disable and it is used for hint
-                if (position > 0) {
-                    // Notify the selected item text
-                    Toast.makeText
-                            (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
-                            .show();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                                dispatchDate.setText("Dispatch on:" + date.toString());
+                                pickupDate=date;
+                            }
+                        }).display();
             }
         });
 
-    }
-
-    protected void onStart(Bundle savedInstanceState) {
 
     }
 
-    private void requestStoragePermission(){
+
+    private void requestStoragePermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(this)
                     .setTitle("Permission needed")
@@ -190,7 +188,7 @@ public class RegularFormActivity extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            ActivityCompat.requestPermissions(RegularFormActivity.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+                            ActivityCompat.requestPermissions(RegularFormActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
 
                         }
                     })
@@ -201,9 +199,8 @@ public class RegularFormActivity extends AppCompatActivity {
                         }
                     })
                     .create().show();
-        }
-        else {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
         }
     }
 
@@ -215,7 +212,7 @@ public class RegularFormActivity extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            ActivityCompat.requestPermissions(RegularFormActivity.this, new String[] {Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
+                            ActivityCompat.requestPermissions(RegularFormActivity.this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
 
                         }
                     })
@@ -225,9 +222,8 @@ public class RegularFormActivity extends AppCompatActivity {
                             dialogInterface.dismiss();
                         }
                     }).create().show();
-        }
-        else {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
         }
     }
 
@@ -239,7 +235,7 @@ public class RegularFormActivity extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            ActivityCompat.requestPermissions(RegularFormActivity.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+                            ActivityCompat.requestPermissions(RegularFormActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
                         }
                     })
                     .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -248,9 +244,8 @@ public class RegularFormActivity extends AppCompatActivity {
                             dialogInterface.dismiss();
                         }
                     }).create().show();
-        }
-        else {
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_CODE);
         }
     }
 
@@ -268,79 +263,8 @@ public class RegularFormActivity extends AppCompatActivity {
     }
 
 
-
-    public void expressOrder(View view) {
-
-
-        Log.d(TAG, "expressOrder: uploading request");
-
-
-        String expressPackageDescription = packageDescription.getText().toString();
-        String expressRecipientName = recipientName.getText().toString();
-        String expressVehicleType = dropdown.getSelectedItem().toString();
-        String expressRecipientPhone = recipientPhone.getText().toString();
-        String expressRecipientLocation = destination.getText().toString();
-
-
-        if (!(expressPackageDescription.matches("") || expressRecipientName.matches("") || expressVehicleType.matches("Select a type of vehicle") || expressRecipientPhone.matches("") || expressRecipientLocation.matches(""))) {
-
-
-            ParseQuery<ParseObject> query = ParseQuery.getQuery("Requests");
-            Intent intent = getIntent();
-            query.whereEqualTo("User", intent.getStringExtra("username"));
-
-
-            query.findInBackground(new FindCallback<ParseObject>() {
-                @Override
-                public void done(List<ParseObject> objects, ParseException e) {
-                    if (e == null) {
-
-                        Log.d(TAG, "done: uploading request data");
-
-                        if (objects.size() > 0) {
-                            for (ParseObject object : objects) {
-
-                                object.put("PackageDescription", expressPackageDescription);
-                                object.put("RecipientName", expressRecipientName);
-                                object.put("VehicleType", expressVehicleType);
-                                object.put("RecipientPhone", expressRecipientPhone);
-
-
-                                object.saveInBackground(new SaveCallback() {
-                                    @Override
-                                    public void done(ParseException e) {
-                                        if (e == null) {
-                                            Log.d(TAG, "done: Upload successful");
-                                        } else {
-                                            Log.d(TAG, "done: Upload failed");
-                                            Toast.makeText(RegularFormActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-
-
-                            }
-
-                        }
-
-
-                    }
-                }
-            });
-
-
-        } else {
-            Toast.makeText(this, "You must fill the whole form", Toast.LENGTH_SHORT).show();
-        }
-
-
-        Intent intent = new Intent(this, ExpressUserMapsActivity.class);
-        startActivity(intent);
-
-    }
-
     private void selectImage(Context context) {
-        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
+        final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Choose your profile picture");
@@ -356,7 +280,7 @@ public class RegularFormActivity extends AppCompatActivity {
 
                 } else if (options[item].equals("Choose from Gallery")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(pickPhoto , 1);
+                    startActivityForResult(pickPhoto, 1);
 
                 } else if (options[item].equals("Cancel")) {
                     dialog.dismiss();
@@ -381,6 +305,7 @@ public class RegularFormActivity extends AppCompatActivity {
                 case 1:
                     if (resultCode == RESULT_OK && data != null) {
                         Uri selectedImage = data.getData();
+                        expressPackageImage = selectedImage;
                         String[] filePathColumn = {MediaStore.Images.Media.DATA};
                         if (selectedImage != null) {
                             Cursor cursor = getContentResolver().query(selectedImage,
@@ -402,16 +327,83 @@ public class RegularFormActivity extends AppCompatActivity {
     }
 
 
-/*
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    public void expressOrder(View view) {
 
-        if (requestCode==1){
-            if (grantResults.length>0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
-                selectImage(RegularFormActivity.this);
+
+        Log.d(TAG, "RegularOrder: uploading request");
+
+
+        String expressPackageDescription = packageDescription.getText().toString();
+        String expressRecipientName = recipientName.getText().toString();
+        String expressRecipientPhone = recipientPhone.getText().toString();
+        String expressRecipientLocation = destination.getText().toString();
+        String regularVehicleType=vehicleType;
+        Date regularPickupDate=pickupDate;
+        Uri expressImage = expressPackageImage;
+
+
+        if (!(expressPackageDescription.matches("") || expressRecipientName.matches("") || expressImage.equals("") || expressRecipientPhone.matches("") || expressRecipientLocation.matches(""))) {
+
+
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), expressImage);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
+            Log.i("Photo", "Received");
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+            byte[] byteArray = stream.toByteArray();
+
+            ParseFile file = new ParseFile("image.png", byteArray);
+
+
+            ParseObject request = new ParseObject("request");
+
+
+            request.put("User", ParseUser.getCurrentUser().getUsername());
+            request.put("image", file);
+            request.put("PackageDescription", expressPackageDescription);
+            request.put("RecipientName", expressRecipientName);
+            request.put("RecipientPhone", expressRecipientPhone);
+            request.put("PickupDate",regularPickupDate);
+            request.put("VehicleType",regularVehicleType);
+
+
+
+            request.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if (e == null) {
+                        Log.d(TAG, "done: Upload successful");
+                    } else {
+                        Log.d(TAG, "done: Upload failed");
+                        Toast.makeText(RegularFormActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+
+        } else {
+            Toast.makeText(this, "You must fill the whole form", Toast.LENGTH_SHORT).show();
         }
-    }*/
+
+
+        Intent intent = new Intent(this, ExpressUserMapsActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void backToRegular(){
+
+        Intent intent= new Intent(this,RegularActivity.class);
+        startActivity(intent);
+    }
+
 
 }

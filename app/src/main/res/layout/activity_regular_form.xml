@@ -7,17 +7,17 @@
     tools:context=".RegularDelivery.RegularFormActivity">
 
 
-    <include layout="@layout/snippet_top_toolbar" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <include layout="@layout/snippet_top_toolbar_packageform" />
 
 
-        <ScrollView
+
+
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/contentScrollView">
+            android:id="@+id/contentScrollView"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -33,6 +33,17 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/packageplaceholder"/>
 
+                <TextView
+                    android:id="@+id/DispatchLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dispatch on: Date not set "
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:layout_below="@+id/RegularPackageImage"
+                    android:layout_centerHorizontal="true"/>
+
+
 
 
                 <EditText
@@ -40,7 +51,7 @@
                     android:layout_width="328dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="15dp"
-                    android:layout_below="@+id/RegularPackageImage"
+                    android:layout_below="@+id/DispatchLabel"
                     android:hint="@string/PackageDesc"
                     android:layout_centerHorizontal="true"
                     android:padding="15dp"
@@ -86,28 +97,31 @@
                     android:background="@drawable/textview_border"/>
 
 
-                <Spinner
-                    android:id="@+id/vehicleType"
-                    android:layout_width="328dp"
-                    android:layout_height="56dp"
-                    android:ems="10"
-                    android:layout_below="@id/PackageDestination"
-                    android:layout_centerHorizontal="true"
-                    android:padding="15dp"
-                    android:layout_marginTop="15dp"
-                    />
 
 
                 <Button
                     android:layout_width="328dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/PackageDestination"
+                    android:layout_below="@+id/date_time_set"
                     android:background="@drawable/black_round_button"
-                    android:text="@string/OrderButton"
+                    android:text="@string/book_button"
                     android:layout_marginTop="10dp"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
                     app:backgroundTint="#040404"
                     android:onClick="expressOrder"/>
+
+                <Button
+                    android:id="@+id/date_time_set"
+                    android:layout_weight="1"
+                    android:layout_width="328dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/set_date_and_time"
+                    android:layout_below="@+id/PackageDestination"
+                    app:backgroundTint="#040404"
+                    android:layout_height="wrap_content" />
+
+
 
 
 
@@ -115,12 +129,12 @@
 
 
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
 
-        <include layout="@layout/layout_bottom_navigation_view" />
 
-    </RelativeLayout>
+
+
 
 
 
