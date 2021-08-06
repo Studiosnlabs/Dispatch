@@ -51,7 +51,7 @@ import java.util.List;
 
 public class ExpressFormActivity extends AppCompatActivity {
 
-    private static final String TAG = "ExpressformActivity";
+    private static final String TAG = "ExpressFormActivity";
 
     EditText packageDescription;
     EditText recipientName;
@@ -112,6 +112,8 @@ public class ExpressFormActivity extends AppCompatActivity {
         destination = findViewById(R.id.PackageDestination);
         PackageImage = (ImageView) findViewById(R.id.ExpressPackageImage);
         backToRegular=findViewById(R.id.backRegular);
+
+
 
 
         backToRegular.setOnClickListener(new View.OnClickListener() {
@@ -251,13 +253,16 @@ public class ExpressFormActivity extends AppCompatActivity {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+
                         PackageImage.setImageBitmap(selectedImage);
+
                     }
 
                     break;
                 case 1:
                     if (resultCode == RESULT_OK && data != null) {
                         Uri selectedImage = data.getData();
+                        expressPackageImage = selectedImage;
                         String[] filePathColumn = {MediaStore.Images.Media.DATA};
                         if (selectedImage != null) {
                             Cursor cursor = getContentResolver().query(selectedImage,
@@ -290,6 +295,9 @@ public class ExpressFormActivity extends AppCompatActivity {
         String expressRecipientPhone = recipientPhone.getText().toString();
         String expressRecipientLocation = destination.getText().toString();
         String regularVehicleType=vehicleType;
+        String dispatchType="Express";
+        String requestStatus="Pending";
+
         Uri expressImage = expressPackageImage;
 
 
@@ -315,6 +323,7 @@ public class ExpressFormActivity extends AppCompatActivity {
             ParseFile file = new ParseFile("image.png", byteArray);
 
 
+
             ParseObject request = new ParseObject("request");
 
 
@@ -324,6 +333,16 @@ public class ExpressFormActivity extends AppCompatActivity {
             request.put("RecipientName", expressRecipientName);
             request.put("RecipientPhone", expressRecipientPhone);
             request.put("VehicleType",regularVehicleType);
+            request.put("DispatchType",dispatchType);
+            request.put("RequestStatus",requestStatus);
+
+
+           /* Booked-1
+              Pending-0(Default)
+              Completed-3
+              Active-2
+              Canceled-4*/
+
 
 
             request.saveInBackground(new SaveCallback() {
@@ -342,6 +361,8 @@ public class ExpressFormActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "You must fill the whole form", Toast.LENGTH_SHORT).show();
         }
+
+
 
 
         Intent intent = new Intent(this, ExpressUserMapsActivity.class);

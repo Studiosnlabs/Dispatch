@@ -44,6 +44,7 @@ import com.example.dispatch.utils.TimePickerFragment;
 import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
 import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog;
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
@@ -76,6 +77,7 @@ public class RegularFormActivity extends AppCompatActivity {
     Uri expressPackageImage;
     Date pickupDate;
     ImageView backToRegular;
+    int Count;
 
 
     private int STORAGE_PERMISSION_CODE = 1; //Identify specific requests for a permission
@@ -175,6 +177,27 @@ public class RegularFormActivity extends AppCompatActivity {
                         }).display();
             }
         });
+
+
+
+        ParseQuery<ParseObject> countQuery =ParseQuery.getQuery("request");
+        countQuery.whereEqualTo("User", ParseUser.getCurrentUser().getUsername());
+        countQuery.whereExists("RegCount");
+        countQuery.orderByDescending("RegCount");
+        countQuery.getFirstInBackground();
+        countQuery.findInBackground();
+
+        try {
+            ParseObject Counter=countQuery.getFirst();
+            String TextCount=Counter.getString("RegCount");
+            Count = Integer.parseInt(TextCount);
+            Count=Count+1;
+            Log.d(TAG, "onCreate: Regular Count is "+ Count);
+        } catch (ParseException e) {
+            Count=1;
+            Log.d(TAG, "onCreate: Regular Count is "+ Count);
+            e.printStackTrace();
+        }
 
 
     }
@@ -338,8 +361,13 @@ public class RegularFormActivity extends AppCompatActivity {
         String expressRecipientPhone = recipientPhone.getText().toString();
         String expressRecipientLocation = destination.getText().toString();
         String regularVehicleType=vehicleType;
+        String dispatchType="Regular";
         Date regularPickupDate=pickupDate;
         Uri expressImage = expressPackageImage;
+        String requestStatus="Pending";
+        String RegularCount=Integer.toString(Count);
+
+
 
 
         if (!(expressPackageDescription.matches("") || expressRecipientName.matches("") || expressImage.equals("") || expressRecipientPhone.matches("") || expressRecipientLocation.matches(""))) {
@@ -373,6 +401,10 @@ public class RegularFormActivity extends AppCompatActivity {
             request.put("RecipientPhone", expressRecipientPhone);
             request.put("PickupDate",regularPickupDate);
             request.put("VehicleType",regularVehicleType);
+            request.put("DispatchType",dispatchType);
+            request.put("RequestStatus",requestStatus);
+            request.put("RegCount",RegularCount);
+
 
 
 
@@ -395,6 +427,7 @@ public class RegularFormActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(this, ExpressUserMapsActivity.class);
+        intent.putExtra("CountValue",RegularCount);
         startActivity(intent);
 
     }
