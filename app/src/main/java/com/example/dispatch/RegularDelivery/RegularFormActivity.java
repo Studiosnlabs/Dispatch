@@ -428,6 +428,7 @@ public class RegularFormActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ExpressUserMapsActivity.class);
         intent.putExtra("CountValue",RegularCount);
+        intent.putExtra("DispatchType",dispatchType);
         startActivity(intent);
 
     }

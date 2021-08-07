@@ -53,6 +53,13 @@ public class ExpressUserMapsActivity extends FragmentActivity implements OnMapRe
     Handler handler = new Handler();
     TextView infoText;
     Boolean driverActive=false;
+    String DispatchType;
+
+    public void findDispatchType(){
+        Intent intent=getIntent();
+        DispatchType=intent.getStringExtra("DispatchType");
+    }
+
 
 
 
@@ -99,37 +106,44 @@ public class ExpressUserMapsActivity extends FragmentActivity implements OnMapRe
 
             if (lastKnownLocation != null) {
 
-                ParseQuery<ParseObject> query =ParseQuery.getQuery("request");
-                query.whereEqualTo("User", ParseUser.getCurrentUser().getUsername());
-                query.findInBackground(new FindCallback<ParseObject>() {
-                    @Override
-                    public void done(List<ParseObject> objects, ParseException e) {
-                        if (e == null) {
+                findDispatchType();
 
-                            if (objects.size() > 0) {
+                if (DispatchType.equals("Express")){
+                    Intent reqStatusIntent= getIntent();
+                    String reqStatus=reqStatusIntent.getStringExtra("RequestState");
+                    ParseQuery<ParseObject> query =ParseQuery.getQuery("request");
+                    query.whereEqualTo("User", ParseUser.getCurrentUser().getUsername());
+                    query.whereEqualTo("DispatchType",DispatchType);
+                    query.whereEqualTo("RequestStatus",reqStatus);
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+                        public void done(List<ParseObject> objects, ParseException e) {
+                            if (e == null) {
 
-                                for (ParseObject object : objects) {
+                                if (objects.size() > 0) {
 
-                                    ParseGeoPoint sendersLocation = new ParseGeoPoint(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
-                                    requestActive=true;
-                                    object.put("UserLocation", sendersLocation);
-                                    object.saveInBackground(new SaveCallback() {
-                                        @Override
-                                        public void done(ParseException e) {
-                                            Log.d(TAG, "done: Location saved");
-                                        }
-                                    });
+                                    for (ParseObject object : objects) {
+
+                                        ParseGeoPoint sendersLocation = new ParseGeoPoint(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
+                                        requestActive=true;
+                                        object.put("UserLocation", sendersLocation);
+                                        object.saveInBackground(new SaveCallback() {
+                                            @Override
+                                            public void done(ParseException e) {
+                                                Log.d(TAG, "done: Location saved");
+                                            }
+                                        });
 
 
+
+
+                                    }
 
 
                                 }
-
-
                             }
                         }
-                    }
-                });
+                    });
 
 
 
@@ -137,10 +151,63 @@ public class ExpressUserMapsActivity extends FragmentActivity implements OnMapRe
 
 
 
-                Intent intent= new Intent(this, ExpressAuctionActivity.class);
-                intent.putExtra("username",ParseUser.getCurrentUser().getUsername());
+                    Intent intent= new Intent(this, ExpressAuctionActivity.class);
+                    intent.putExtra("username",ParseUser.getCurrentUser().getUsername());
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
+                else if (DispatchType.equals("Regular")){
+
+                    Intent countIntent=getIntent();
+
+                    String CountVal = countIntent.getStringExtra("CountValue");
+
+                    ParseQuery<ParseObject> query =ParseQuery.getQuery("request");
+                    query.whereEqualTo("User", ParseUser.getCurrentUser().getUsername());
+                    query.whereEqualTo("RegCount",CountVal);
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+                        public void done(List<ParseObject> objects, ParseException e) {
+                            if (e == null) {
+
+                                if (objects.size() > 0) {
+
+                                    for (ParseObject object : objects) {
+
+                                        ParseGeoPoint sendersLocation = new ParseGeoPoint(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
+                                        requestActive=true;
+                                        object.put("UserLocation", sendersLocation);
+                                        object.saveInBackground(new SaveCallback() {
+                                            @Override
+                                            public void done(ParseException e) {
+                                                Log.d(TAG, "done: Location saved");
+                                            }
+                                        });
+
+
+
+
+                                    }
+
+
+                                }
+                            }
+                        }
+                    });
+
+
+
+
+
+
+
+                    Intent intent= new Intent(this, ExpressAuctionActivity.class);
+                    intent.putExtra("username",ParseUser.getCurrentUser().getUsername());
+
+                    startActivity(intent);
+                }
+
+
 
 
 

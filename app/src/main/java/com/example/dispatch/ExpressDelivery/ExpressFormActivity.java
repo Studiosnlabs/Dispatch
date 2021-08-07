@@ -102,6 +102,7 @@ public class ExpressFormActivity extends AppCompatActivity {
             requestLocationPermission();
         }
 
+// execute method to check and make sure only one express delivery is happening at a time
 
         Bundle extras= getIntent().getExtras();
         vehicleType=extras.getString("vehicleType");
@@ -366,6 +367,8 @@ public class ExpressFormActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(this, ExpressUserMapsActivity.class);
+        intent.putExtra("DispatchType",dispatchType);
+        intent.putExtra("RequestState",requestStatus);
         startActivity(intent);
 
     }
