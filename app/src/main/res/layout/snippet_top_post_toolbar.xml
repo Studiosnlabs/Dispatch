@@ -1,0 +1,94 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/white_gray_border_bottom">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileToolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/relative1">
+
+                 <de.hdodenhof.circleimageview.CircleImageView
+                     android:layout_width="50dp"
+                     android:layout_height="50dp"
+                     android:layout_alignParentLeft="true"
+                     android:layout_marginEnd="20dp"
+                     app:civ_border_color="@color/black"
+                     app:civ_border_width="2dp"
+                     android:layout_centerVertical="true"
+
+                     android:id="@+id/userProfileImage"
+                     android:src="@drawable/ic_baseline_person_24"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_toEndOf="@+id/userProfileImage"
+                    android:textSize="25sp"
+                    android:text="@string/display_username"
+                    android:textColor="@color/black"
+
+                    android:id="@+id/profileName"/>
+
+
+
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/AcceptRegular"
+                   android:text="@string/accept_button"/>
+
+
+
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/locationIcon"
+                        android:src="@drawable/ic_baseline_location_on_24"
+                        android:layout_below="@+id/profileName"
+                        android:layout_toEndOf="@+id/userProfileImage"
+                        android:layout_marginTop="5dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/locationIcon"
+                        android:layout_below="@id/profileName"
+                        android:layout_marginTop="5dp"
+                        android:textSize="20dp"
+                        android:text="@string/users_address"
+                        android:id="@+id/userAddressPost"/>
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+</merge>

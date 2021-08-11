@@ -65,6 +65,12 @@
     <string name="ExpressDescription">Express allows you to order a driver nearest to you for a pick up ,select a vehicle below to begin</string>
     <string name="express_dispatch">Express Dispatch</string>
     <string name="set_date_and_time">Set Date and Time</string>
+    <string name="display_username">username</string>
+    <string name="accept_button">ACCEPT</string>
+    <string name="users_address">users address</string>
+    <string name="package_destination_address_placehlder">Destination Address</string>
+    <string name="destination_label">Destination:</string>
+    <string name="more_information">More information</string>
 
 
 </resources>
