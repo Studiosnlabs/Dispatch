@@ -404,6 +404,7 @@ public class RegularFormActivity extends AppCompatActivity {
             request.put("DispatchType",dispatchType);
             request.put("RequestStatus",requestStatus);
             request.put("RegCount",RegularCount);
+            request.put("Destination",expressRecipientLocation);
 
 
 
