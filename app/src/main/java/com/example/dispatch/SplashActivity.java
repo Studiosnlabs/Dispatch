@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.dispatch.ExpressDelivery.ExpressActivity;
+import com.example.dispatch.utils.Driver_Login_Activity;
 import com.example.dispatch.utils.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
+                Intent intent=new Intent(SplashActivity.this, Driver_Login_Activity.class);
                 startActivity(intent);
                 finish();
             }

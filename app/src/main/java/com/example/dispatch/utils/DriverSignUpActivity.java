@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.dispatch.ExpressDelivery.ExpressActivity;
 import com.example.dispatch.R;
+import com.example.dispatch.RegularDelivery.RegularDriversActivity;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -66,7 +67,7 @@ public class DriverSignUpActivity extends AppCompatActivity {
 
 
     public void NextIntent(){
-        Intent intent = new Intent(this, ExpressActivity.class);
+        Intent intent = new Intent(this, RegularDriversActivity.class);
         startActivity(intent);
     }
 

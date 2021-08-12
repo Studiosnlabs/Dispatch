@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.dispatch.ExpressDelivery.ExpressFormActivity;
 import com.example.dispatch.R;
+import com.example.dispatch.RegularDelivery.RegularDriversActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -27,7 +28,7 @@ public class Driver_Login_Activity extends AppCompatActivity {
     Button login;
 
     public void NextIntent(){
-        Intent intent = new Intent(this, ExpressFormActivity.class);
+        Intent intent = new Intent(this, RegularDriversActivity.class);
         startActivity(intent);
     }
 

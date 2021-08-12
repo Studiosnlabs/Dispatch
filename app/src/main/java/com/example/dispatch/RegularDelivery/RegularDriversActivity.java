@@ -55,7 +55,7 @@ public class RegularDriversActivity extends AppCompatActivity {
         feedQuery.orderByDescending("createdAt");
 
 
-
+//use arrays to store data and cycle through data with for loop
 
         feedQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -97,6 +97,9 @@ public class RegularDriversActivity extends AppCompatActivity {
                                 }
                             });
 
+                            arrayList.add(new RegularDriversFeed(PackagePostImage,profileImage,UsernamePost,UserAddressPost,UserDestinationPost,MoreInfoPost));
+
+
 
                         }
 
@@ -107,13 +110,12 @@ public class RegularDriversActivity extends AppCompatActivity {
             }
         });
 
-       // arrayList.add(new RegularDriversFeed())
+
 
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(arrayList);
 
         recyclerView.setAdapter(recyclerAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(RegularDriversActivity.this));
 
 
     }
