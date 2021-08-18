@@ -5,8 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbarRelative"
-        >
+        android:id="@+id/toolbarRelative">
 
         <include  android:id="@+id/postToolBar"   layout="@layout/snippet_top_post_toolbar"/>
 
@@ -15,18 +14,19 @@
 
 
 
-<com.example.dispatch.utils.SquareImageView
+<ImageView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scaleType="centerCrop"
+    android:layout_height="400dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/packageplaceholder"
     android:id="@+id/PackageImageView"
     android:layout_below="@+id/toolbarRelative"/>
 
-    <ProgressBar
+   <!-- <ProgressBar
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:id="@+id/gridImageProgressBar"/>
+        android:id="@+id/gridImageProgressBar"/>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,6 +45,7 @@
         android:layout_below="@+id/PackageImageView"
         android:layout_toEndOf="@id/DestinationLabel"
         android:text="@string/package_destination_address_placehlder"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

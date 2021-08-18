@@ -39,11 +39,12 @@ public RecyclerAdapter(ArrayList<RegularDriversFeed> arrayList){
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
     RegularDriversFeed regularDriversFeed=arrayList.get(position);
 
+    holder.PackagePostImage.setImageBitmap(regularDriversFeed.getPackagePostImage());
     holder.UserAddressPost.setText(regularDriversFeed.getUserAddressPost());
     holder.UserDestinationPost.setText(regularDriversFeed.getUserDestinationPost());
     holder.UsernamePost.setText(regularDriversFeed.getUsernamePost());
-    holder.PackagePostImage.setImageBitmap(regularDriversFeed.getPackagePostImage());
-    holder.ProfileImage.setImageBitmap(regularDriversFeed.getProfileImage());
+    holder.ProfileImage.setImageResource(regularDriversFeed.getProfileImage());
+
 
 
     }
@@ -57,8 +58,8 @@ public RecyclerAdapter(ArrayList<RegularDriversFeed> arrayList){
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        SquareImageView PackagePostImage;
-        CircleImageView ProfileImage;
+        ImageView PackagePostImage;
+        ImageView ProfileImage;
         TextView UsernamePost;
         TextView UserAddressPost;
         TextView UserDestinationPost;
@@ -73,6 +74,7 @@ public RecyclerAdapter(ArrayList<RegularDriversFeed> arrayList){
             UserAddressPost=itemView.findViewById(R.id.userAddressPost);
             UserDestinationPost=itemView.findViewById(R.id.DestinationAddress);
             MoreInfoPost=itemView.findViewById(R.id.MoreInfo);
+
 
 
         }

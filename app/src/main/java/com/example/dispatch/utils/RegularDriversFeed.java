@@ -1,23 +1,22 @@
 package com.example.dispatch.utils;
 
 import android.graphics.Bitmap;
+import android.widget.ImageView;
 
 public class RegularDriversFeed {
 
     private Bitmap PackagePostImage;
-    private Bitmap profileImage;
+    private int profileImage;
     private String UsernamePost;
     private String UserAddressPost;
     private String UserDestinationPost;
-    private String MoreInfoPost;
 
-    public RegularDriversFeed(Bitmap packagePostImage, Bitmap profileImage, String usernamePost, String userAddressPost, String userDestinationPost, String moreInfoPost) {
+    public RegularDriversFeed(Bitmap packagePostImage, int profileImage, String usernamePost, String userAddressPost, String userDestinationPost) {
         PackagePostImage = packagePostImage;
         this.profileImage = profileImage;
         UsernamePost = usernamePost;
         UserAddressPost = userAddressPost;
         UserDestinationPost = userDestinationPost;
-        MoreInfoPost = moreInfoPost;
     }
 
     public Bitmap getPackagePostImage() {
@@ -28,11 +27,11 @@ public class RegularDriversFeed {
         PackagePostImage = packagePostImage;
     }
 
-    public Bitmap getProfileImage() {
+    public int getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(Bitmap profileImage) {
+    public void setProfileImage(int profileImage) {
         this.profileImage = profileImage;
     }
 
@@ -58,13 +57,5 @@ public class RegularDriversFeed {
 
     public void setUserDestinationPost(String userDestinationPost) {
         UserDestinationPost = userDestinationPost;
-    }
-
-    public String getMoreInfoPost() {
-        return MoreInfoPost;
-    }
-
-    public void setMoreInfoPost(String moreInfoPost) {
-        MoreInfoPost = moreInfoPost;
     }
 }
