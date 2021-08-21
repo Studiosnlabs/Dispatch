@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/courierName"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="COURIER NAME"
+        android:textSize="35sp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationTag"
+        android:layout_below="@+id/courierName"
+        android:text="Location:"
+        android:textSize="25sp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationData"
+        android:layout_below="@+id/courierName"
+        android:layout_toEndOf="@+id/locationTag"
+        android:text="Location Data"
+        android:textSize="25sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/destinationTag"
+        android:layout_below="@+id/locationTag"
+        android:text="Destination:"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/destinationData"
+        android:layout_below="@+id/locationTag"
+        android:layout_toEndOf="@+id/destinationTag"
+        android:text="Destination Data"
+        android:textSize="25sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/departureTag"
+        android:layout_below="@+id/destinationTag"
+        android:text="Departure:"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/departureData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/destinationTag"
+        android:layout_toEndOf="@+id/departureTag"
+        android:text="Departure Data"
+        android:textColor="#F10D0D"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/arrivalTag"
+        android:layout_below="@+id/departureTag"
+        android:text="Arrival:"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/arrivalData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureTag"
+        android:layout_toEndOf="@+id/arrivalTag"
+        android:text="Arrival Data"
+        android:textColor="#4CAF50"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phoneTag"
+        android:layout_below="@+id/arrivalTag"
+        android:text="Phone:"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phoneData"
+        android:layout_below="@+id/arrivalTag"
+        android:layout_toEndOf="@+id/phoneTag"
+        android:text="Phone Data"
+        android:textSize="25sp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slotsTag"
+        android:layout_below="@+id/phoneTag"
+        android:text="Slots Left:"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/slotsData"
+        android:layout_below="@+id/phoneTag"
+        android:layout_toEndOf="@+id/slotsTag"
+        android:text="Slots Data"
+        android:textSize="25sp"
+        android:textColor="@color/black" />
+
+
+
+
+</RelativeLayout>
