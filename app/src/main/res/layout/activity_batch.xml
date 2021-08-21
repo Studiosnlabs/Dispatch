@@ -28,18 +28,12 @@
             android:id="@+id/relLayout2"
             android:layout_below="@+id/relLayout1"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/setLocationTitleBatch"
-                android:textSize="25dp"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                />
 
-            <include layout="@layout/layout_center_pickupbuttons" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
 
         </RelativeLayout>
 

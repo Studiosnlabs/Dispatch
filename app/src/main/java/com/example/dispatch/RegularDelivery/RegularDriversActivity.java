@@ -107,7 +107,7 @@ public class RegularDriversActivity extends AppCompatActivity {
                                         PackageImage = BitmapFactory.decodeByteArray(data, 0, data.length);
                                         Log.d(TAG, "done: getting picture");
 
-                                        arrayList.add(new RegularDriversFeed(PackageImage, R.drawable.ic_baseline_person_24, UsernamePost, UserAddressPost, UserDestinationPost));
+                                        arrayList.add(new RegularDriversFeed(PackageImage, R.drawable.ic_baseline_location_on_24, UsernamePost, UserAddressPost, UserDestinationPost));
 
 
                                         feedCount = feedCount + 1;
