@@ -6,16 +6,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.dispatch.R;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-import com.parse.ParseUser;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ExpressAuctionActivity extends AppCompatActivity {
+public class ExpressReceiptActivity extends AppCompatActivity {
     TextView PackageDescription;
     TextView RecipientName;
     TextView RecipientPhone;
@@ -81,13 +75,13 @@ public class ExpressAuctionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_express_auction);
+        setContentView(R.layout.activity_express_receipt);
 
-        PackageDescription = findViewById(R.id.packageDescriptionTv);
-        RecipientName = findViewById(R.id.RecipientName);
-        RecipientPhone= findViewById(R.id.RecipientPhone);
-        PackageDestination=findViewById(R.id.PackageDestinationTV);
-        VehicleType=findViewById(R.id.vehicleTypeTV);
+//        PackageDescription = findViewById(R.id.packageDescriptionTv);
+//        RecipientName = findViewById(R.id.RecipientName);
+//        RecipientPhone= findViewById(R.id.RecipientPhone);
+//        PackageDestination=findViewById(R.id.PackageDestinationTV);
+//        VehicleType=findViewById(R.id.vehicleTypeTV);
 
 /*
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Request");

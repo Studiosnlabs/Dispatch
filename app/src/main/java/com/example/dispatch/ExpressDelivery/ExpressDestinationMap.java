@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -25,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dispatch.R;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -270,7 +268,7 @@ public class ExpressDestinationMap extends FragmentActivity implements OnMapRead
 
 
     public void NextIntent(){
-        Intent intent = new Intent(this, ExpressAuctionActivity.class);
+        Intent intent = new Intent(this, ExpressReceiptActivity.class);
         startActivity(intent);
     }
 

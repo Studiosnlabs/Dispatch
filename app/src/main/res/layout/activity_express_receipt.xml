@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExpressDelivery.ExpressReceiptActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarRelative">
+
+        <include  android:id="@+id/postToolBar"   layout="@layout/snippet_top_auction_toolbar"/>
+
+
+    </RelativeLayout>
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/packageplaceholder"
+        android:id="@+id/PackageImageView"
+        android:layout_below="@+id/toolbarRelative"/>
+
+    <!-- <ProgressBar
+         android:layout_width="50dp"
+         android:layout_height="50dp"
+         android:layout_centerInParent="true"
+         android:id="@+id/gridImageProgressBar"/>-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RecipientLabel"
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"
+        android:text="@string/recipient_label"
+        android:layout_below="@+id/PackageImageView"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RecipientName"
+        android:textSize="25sp"
+        android:layout_below="@+id/PackageImageView"
+        android:layout_toEndOf="@id/RecipientLabel"
+        android:text="@string/RecipientName"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DestinationLabel"
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"
+        android:text="@string/destination_label"
+        android:layout_below="@+id/RecipientLabel"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DestinationAddress"
+        android:textSize="25sp"
+        android:layout_below="@+id/RecipientName"
+        android:layout_toEndOf="@id/DestinationLabel"
+        android:text="@string/package_destination_address_placehlder"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RecipientPhoneLabel"
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"
+        android:text="@string/phone_label"
+        android:layout_below="@+id/DestinationLabel"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RecipientPhone"
+        android:textSize="25sp"
+        android:layout_below="@+id/DestinationAddress"
+        android:layout_toEndOf="@id/RecipientPhoneLabel"
+        android:text="@string/phoneNumberPlaceHolder"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Vehicle_Label"
+        android:layout_marginLeft="10dp"
+        android:textSize="25sp"
+        android:text="@string/vehicle_label"
+        android:layout_below="@+id/RecipientPhoneLabel"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/VehicleType"
+        android:textSize="25sp"
+        android:layout_below="@+id/RecipientPhone"
+        android:layout_toEndOf="@id/Vehicle_Label"
+        android:text="@string/vehicle_type_Placeholder"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Buttons"
+        android:layout_below="@id/Vehicle_Label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/CallDriver"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/call_driver"
+            app:backgroundTint="#4CAF50" />
+
+        <Button
+            android:id="@+id/TrackPackageBtn"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@id/CallDriver"
+            android:text="@string/track_package"
+            app:backgroundTint="#090909" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

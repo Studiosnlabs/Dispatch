@@ -8,6 +8,8 @@ import android.os.Handler;
 
 import com.example.dispatch.BatchDelivery.BatchActivity;
 import com.example.dispatch.ExpressDelivery.ExpressActivity;
+import com.example.dispatch.ExpressDelivery.Express_DriversActivity;
+import com.example.dispatch.utils.DriverSignUpActivity;
 import com.example.dispatch.utils.Driver_Login_Activity;
 import com.example.dispatch.utils.LoginActivity;
 
@@ -25,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this, BatchActivity.class);
+                Intent intent=new Intent(SplashActivity.this, Express_DriversActivity.class);
                 startActivity(intent);
                 finish();
             }

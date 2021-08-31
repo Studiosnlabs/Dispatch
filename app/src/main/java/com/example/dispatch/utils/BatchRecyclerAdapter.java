@@ -12,11 +12,11 @@ import com.example.dispatch.R;
 
 import java.util.ArrayList;
 
-public class BatchReyclerAdapter extends RecyclerView.Adapter<BatchReyclerAdapter.ViewHolder> {
+public class BatchRecyclerAdapter extends RecyclerView.Adapter<BatchRecyclerAdapter.ViewHolder> {
     private static final String TAG="Batch List Adapter";
 
     ArrayList<BatchUserFeed> arrayList;
-    public BatchReyclerAdapter(ArrayList<BatchUserFeed> arrayList){
+    public BatchRecyclerAdapter(ArrayList<BatchUserFeed> arrayList){
         this.arrayList=arrayList;
     }
 
@@ -29,7 +29,7 @@ public class BatchReyclerAdapter extends RecyclerView.Adapter<BatchReyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BatchReyclerAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BatchRecyclerAdapter.ViewHolder holder, int position) {
 
         BatchUserFeed batchUserFeed=arrayList.get(position);
 
@@ -44,7 +44,7 @@ public class BatchReyclerAdapter extends RecyclerView.Adapter<BatchReyclerAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return arrayList.size();
     }
 
 
@@ -58,7 +58,7 @@ public class BatchReyclerAdapter extends RecyclerView.Adapter<BatchReyclerAdapte
         TextView Phone;
         TextView Slots;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             CourierName=itemView.findViewById(R.id.courierName);
             Location=itemView.findViewById(R.id.locationData);

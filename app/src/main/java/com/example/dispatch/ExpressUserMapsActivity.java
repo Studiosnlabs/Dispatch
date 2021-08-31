@@ -21,9 +21,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dispatch.ExpressDelivery.ExpressAuctionActivity;
-import com.example.dispatch.ExpressDelivery.ExpressDestinationMap;
-import com.example.dispatch.ExpressDelivery.ExpressFormActivity;
+import com.example.dispatch.ExpressDelivery.ExpressReceiptActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -151,7 +149,7 @@ public class ExpressUserMapsActivity extends FragmentActivity implements OnMapRe
 
 
 
-                    Intent intent= new Intent(this, ExpressAuctionActivity.class);
+                    Intent intent= new Intent(this, ExpressReceiptActivity.class);
                     intent.putExtra("username",ParseUser.getCurrentUser().getUsername());
 
                     startActivity(intent);
@@ -201,7 +199,7 @@ public class ExpressUserMapsActivity extends FragmentActivity implements OnMapRe
 
 
 
-                    Intent intent= new Intent(this, ExpressAuctionActivity.class);
+                    Intent intent= new Intent(this, ExpressReceiptActivity.class);
                     intent.putExtra("username",ParseUser.getCurrentUser().getUsername());
 
                     startActivity(intent);

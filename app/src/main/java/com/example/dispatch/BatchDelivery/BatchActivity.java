@@ -5,28 +5,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.dispatch.R;
-import com.example.dispatch.RegularDelivery.RegularActivity;
-import com.example.dispatch.RegularDelivery.RegularDriversActivity;
-import com.example.dispatch.utils.BatchReyclerAdapter;
+import com.example.dispatch.utils.BatchRecyclerAdapter;
 import com.example.dispatch.utils.BatchUserFeed;
 import com.example.dispatch.utils.BottomNavigationViewHelper;
-import com.example.dispatch.utils.RecyclerAdapter;
-import com.example.dispatch.utils.RegularDriversFeed;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.parse.FindCallback;
-import com.parse.GetDataCallback;
 import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -52,6 +46,7 @@ public class BatchActivity extends AppCompatActivity {
     String Phone;
     String Slots;
     int feedCount;
+    ProgressBar batchProgress;
 
 
     private RecyclerView recyclerView;
@@ -65,7 +60,7 @@ public class BatchActivity extends AppCompatActivity {
 
         arrayList = new ArrayList<>();
 
-
+batchProgress=findViewById(R.id.batchProgress);
 
         Log.d(TAG, "onCreate: started");
 
@@ -102,22 +97,27 @@ public class BatchActivity extends AppCompatActivity {
                                 if (UserAdress1!=null && UserAdress1.size()>0){
                                     Location=UserAdress1.get(0).getAddressLine(0);
 
+                                    arrayList.add(new BatchUserFeed(CourierName, Location, Destination, Departure, Arrival,Phone,Slots));
+
+                                    recyclerView = findViewById(R.id.recyclerView2);
+                                    BatchRecyclerAdapter recyclerAdapter = new BatchRecyclerAdapter(arrayList);
+                                    recyclerView.setAdapter(recyclerAdapter);
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(BatchActivity.this));
+
+                                    batchProgress.setVisibility(View.GONE);
+
+                                    feedCount = feedCount + 1;
+
+
+
+
                                 }
                             } catch (IOException ioException) {
                                 ioException.printStackTrace();
                             }
                             Log.d(TAG, "done: Data found");
 
-                            arrayList.add(new BatchUserFeed(CourierName, Location, Destination, Departure, Arrival,Phone,Slots));
 
-
-                            feedCount = feedCount + 1;
-
-
-                            recyclerView = findViewById(R.id.recyclerView2);
-                            BatchReyclerAdapter recyclerAdapter = new BatchReyclerAdapter(arrayList);
-                            recyclerView.setAdapter(recyclerAdapter);
-                            recyclerView.setLayoutManager(new LinearLayoutManager(BatchActivity.this));
 
 
 

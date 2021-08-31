@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dispatch"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegularDelivery.RegularDriversActivity"></activity>
+        <activity android:name=".utils.BargainChat"></activity>
+        <activity android:name=".ExpressDelivery.Express_AuctionActivity" />
+        <activity android:name=".RegularDelivery.RegularDriversActivity" />
         <activity android:name=".ExpressDelivery.Express_DriversActivity" />
         <activity android:name=".BatchDelivery.Batch_DriversActivity" />
         <activity android:name=".BatchDelivery.Batch_DestinationActivity" />
@@ -22,7 +24,7 @@
         <activity android:name=".utils.DriverSignUpActivity" />
         <activity android:name=".utils.UserLoginActivity" />
         <activity android:name=".utils.UserSignUpActivity" />
-        <activity android:name=".ExpressDelivery.ExpressAuctionActivity" />
+        <activity android:name=".ExpressDelivery.ExpressReceiptActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -73,12 +75,12 @@
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

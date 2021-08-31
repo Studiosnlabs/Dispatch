@@ -236,6 +236,7 @@ public class DriverSignUpActivity extends AppCompatActivity {
                     user.put("VehicleType",vehicleType);
                     user.put("Gender",Sex);
                     user.put("LicencePlate",LicencePlate.getText().toString());
+                    user.put("LicenceId",Licence);
 
 
 

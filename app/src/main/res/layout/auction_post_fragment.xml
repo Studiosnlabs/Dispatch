@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/white_gray_border_bottom">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Amount"
+            android:text="@string/ghs_placeholder"
+            android:textSize="40sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/driverName"
+           android:hint="@string/driverName"
+            android:layout_below="@+id/Amount"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/courierName"
+            android:hint="@string/courier_name"
+            android:layout_below="@+id/driverName"
+            android:textSize="30sp"/>
+
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:text="@string/accept_button"
+            android:id="@+id/expressAuctionAcceptBtn" />
+
+        <Button
+            android:id="@+id/expressAuctionBargainBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/expressAuctionAcceptBtn"
+            android:layout_alignParentEnd="true"
+            android:text="@string/bargain_button"
+            android:layout_marginTop="7dp"
+            app:backgroundTint="#070707" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
