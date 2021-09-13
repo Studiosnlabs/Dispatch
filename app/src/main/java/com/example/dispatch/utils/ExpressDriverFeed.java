@@ -1,6 +1,8 @@
 package com.example.dispatch.utils;
 
 import android.graphics.Bitmap;
+import android.util.Log;
+import android.widget.Button;
 
 public class ExpressDriverFeed {
 
@@ -9,6 +11,7 @@ public class ExpressDriverFeed {
     private String UsernamePost;
     private String UserAddressPost;
     private String UserDestinationPost;
+    private String Price;
 
     public ExpressDriverFeed(Bitmap packagePostImage, int profileImage, String usernamePost, String userAddressPost, String userDestinationPost) {
         PackagePostImage = packagePostImage;
@@ -57,4 +60,12 @@ public class ExpressDriverFeed {
     public void setUserDestinationPost(String userDestinationPost) {
         UserDestinationPost = userDestinationPost;
     }
+
+    public String getPrice(){return Price;}
+
+    public void setPrice(){
+        Log.d("DRIVER", "setPrice: working");
+
+    }
+
 }

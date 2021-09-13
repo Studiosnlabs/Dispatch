@@ -49,7 +49,7 @@ public class Express_DriversActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ArrayList<ExpressDriverFeed> arrayList;
-    Button Accept;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class Express_DriversActivity extends AppCompatActivity {
         
         arrayList = new ArrayList<>();
         
-        Accept=findViewById(R.id.expressAuctionAcceptBtn);
+
 
         ParseQuery<ParseObject> DriverUserQuery = ParseQuery.getQuery("User");
         DriverUserQuery.whereEqualTo("User", ParseUser.getCurrentUser());
@@ -123,12 +123,7 @@ public class Express_DriversActivity extends AppCompatActivity {
                                         recyclerView.setAdapter(recyclerAdapter);
                                         recyclerView.setLayoutManager(new LinearLayoutManager(Express_DriversActivity.this));
 
-                                        Accept.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                Log.d(TAG, "onClick: Driver accepted this request");
-                                            }
-                                        });
+
 
 
 

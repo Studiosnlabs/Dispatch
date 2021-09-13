@@ -3,6 +3,7 @@ package com.example.dispatch.utils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,12 @@ public ExpressRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup p
         holder.UserDestinationPost.setText(expressDriverFeed.getUserDestinationPost());
         holder.UsernamePost.setText(expressDriverFeed.getUsernamePost());
         holder.ProfileImage.setImageResource(expressDriverFeed.getProfileImage());
+        holder.Accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                expressDriverFeed.setPrice();
+            }
+        });
 
 
     }
@@ -60,6 +67,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     TextView UserAddressPost;
     TextView UserDestinationPost;
     TextView MoreInfoPost;
+    Button Accept;
 
     public ViewHolder(@NonNull View itemView){
         super(itemView);
@@ -70,6 +78,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         UserAddressPost=itemView.findViewById(R.id.userAddressPost);
         UserDestinationPost=itemView.findViewById(R.id.DestinationAddress);
         MoreInfoPost=itemView.findViewById(R.id.MoreInfo);
+        Accept=itemView.findViewById(R.id.AcceptRegular);
 
 
 
